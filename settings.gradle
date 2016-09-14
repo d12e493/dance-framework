@@ -1,0 +1,10 @@
+rootProject.name = 'dance'
+
+include 'dance-entity'
+include 'dance-util'
+include 'dance-dao'
+include 'dance-service'
+include 'dance-web'
+include 'dance-properties'
+include 'dance-resource'
+

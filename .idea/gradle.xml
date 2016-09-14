@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="createEmptyContentRootDirectories" value="true" />
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$USER_HOME$/Documents/gradle-3.0" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/dance-dao" />
+            <option value="$PROJECT_DIR$/dance-entity" />
+            <option value="$PROJECT_DIR$/dance-properties" />
+            <option value="$PROJECT_DIR$/dance-resource" />
+            <option value="$PROJECT_DIR$/dance-service" />
+            <option value="$PROJECT_DIR$/dance-util" />
+            <option value="$PROJECT_DIR$/dance-web" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/dance-dao" />
+            <option value="$PROJECT_DIR$/dance-entity" />
+            <option value="$PROJECT_DIR$/dance-properties" />
+            <option value="$PROJECT_DIR$/dance-resource" />
+            <option value="$PROJECT_DIR$/dance-service" />
+            <option value="$PROJECT_DIR$/dance-util" />
+            <option value="$PROJECT_DIR$/dance-web" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

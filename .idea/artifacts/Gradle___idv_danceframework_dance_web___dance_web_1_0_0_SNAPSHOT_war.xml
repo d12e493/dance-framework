@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Gradle : idv.danceframework:dance-web : dance-web-1.0.0-SNAPSHOT.war">
+    <output-path>$PROJECT_DIR$/out/artifacts/dance-web</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$" />
+    </properties>
+    <root id="archive" name="dance-web-1.0.0-SNAPSHOT.war">
+      <element id="javaee-facet-resources" facet="dance-web/web/Web Gradle : dance-web-1.0.0-SNAPSHOT.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="dance-web" />
+          <element id="dir-copy" path="$PROJECT_DIR$/dance-web/build/resources/main" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/dance-web/exploded/dance-web-1.0.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
