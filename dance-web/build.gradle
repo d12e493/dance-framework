@@ -1,2 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'war'
+apply plugin: 'jetty'
+
+dependencies {
+    compile 'org.springframework:spring-webmvc:4.3.2.RELEASE'
+}

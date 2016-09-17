@@ -1,28 +1,21 @@
 group 'idv.danceframework'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
+allprojects {
 
-repositories {
-    mavenCentral()
+    group "idv.danceframework"
+    version "1.0.0-SNAPSHOT"
+
+    apply plugin: 'idea'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-}
-
-ext {
-    springWebmvcVersion = '4.3.2.RELEASE'
-}
-
-configure(allprojects) { project ->
-
-    group 'idv.danceframework'
-    version '1.0.0-SNAPSHOT'
-
-    compileJava {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
-        options.encoding = 'UTF-8'
+subprojects {
+    ext {
+        SpringWebmvcVersion = '4.3.2.RELEASE'
     }
 }
