@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/data/jpa 
+    http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:mainDatabase.properties</value>
+		</property>
+	</bean>
+
+	<bean id="employeeDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${main.driverClassName}" />
+		<property name="jdbcUrl" value="${main.dbUrl}" />
+		<property name="user" value="${main.username}" />
+		<property name="password" value="${main.password}" />
+		<property name="maxPoolSize" value="${main.maxPoolSize}" />
+		<property name="minPoolSize" value="${main.minPoolSize}" />
+		<property name="maxStatements" value="${main.maxStatements}" />
+	</bean>
+
+	<!-- Create default configuration for Hibernate -->
+	<bean id="hibernateJpaVendorAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+
+	<!-- Configure the entity manager factory bean -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
+		<!-- Set JPA properties -->
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="javax.persistence.schema-generation.database.action">none</prop>
+				<prop key="hibernate.ejb.use_class_enhancer">true</prop>
+			</props>
+		</property>
+		<!-- Set base package of your entities -->
+		<property name="packagesToScan" value="idv.danceframework.entity" />
+		<!-- Set share cache mode -->
+		<property name="sharedCacheMode" value="ENABLE_SELECTIVE" />
+		<!-- Set validation mode -->
+		<property name="validationMode" value="NONE" />
+	</bean>
+
+	<!-- Configure the transaction manager bean -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- Enable annotation driven transaction management -->
+	<tx:annotation-driven />
+
+	<!-- Configure Spring Data JPA and set the base package of the repository 
+		interfaces -->
+	<jpa:repositories base-package="idv.danceframework.repository" />
+</beans>
