@@ -6,7 +6,7 @@ allprojects {
     group "idv.danceframework"
     version "1.0.0-SNAPSHOT"
 
-    apply plugin: 'idea'
+    apply plugin: 'eclipse'
 
     repositories {
         mavenCentral()
