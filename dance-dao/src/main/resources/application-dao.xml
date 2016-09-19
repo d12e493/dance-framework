@@ -18,7 +18,7 @@
 		</property>
 	</bean>
 
-	<bean id="employeeDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<bean id="mainDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${main.driverClassName}" />
 		<property name="jdbcUrl" value="${main.dbUrl}" />
@@ -29,29 +29,23 @@
 		<property name="maxStatements" value="${main.maxStatements}" />
 	</bean>
 
-	<!-- Create default configuration for Hibernate -->
 	<bean id="hibernateJpaVendorAdapter"
-		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
-
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+	</bean>
 	<!-- Configure the entity manager factory bean -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="mainDataSource" />
 		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
 		<!-- Set JPA properties -->
 		<property name="jpaProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
-				<prop key="javax.persistence.schema-generation.database.action">none</prop>
-				<prop key="hibernate.ejb.use_class_enhancer">true</prop>
+				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+				<prop key="hibernate.show_sql">true</prop>
 			</props>
 		</property>
-		<!-- Set base package of your entities -->
 		<property name="packagesToScan" value="idv.danceframework.entity" />
-		<!-- Set share cache mode -->
-		<property name="sharedCacheMode" value="ENABLE_SELECTIVE" />
-		<!-- Set validation mode -->
-		<property name="validationMode" value="NONE" />
 	</bean>
 
 	<!-- Configure the transaction manager bean -->
