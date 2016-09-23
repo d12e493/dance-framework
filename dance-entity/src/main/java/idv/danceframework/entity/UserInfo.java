@@ -1,5 +1,6 @@
 package idv.danceframework.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,8 +16,18 @@ public class UserInfo {
 	@GeneratedValue
 	private Long usid;
 
+	@Column(nullable = false)
 	private String name;
+
+	@Column(unique = true, nullable = false, updatable = false)
+	private String email;
+
+	@Column(nullable = false)
 	private String password;
+
+	public UserInfo() {
+
+	}
 
 	public Long getUsid() {
 		return usid;
@@ -32,6 +43,14 @@ public class UserInfo {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {

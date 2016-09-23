@@ -6,4 +6,5 @@ import idv.danceframework.entity.UserInfo;
 
 public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
 
+	UserInfo findByEmail(String email);
 }

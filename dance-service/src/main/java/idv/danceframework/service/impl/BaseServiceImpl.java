@@ -36,4 +36,10 @@ public class BaseServiceImpl<T, PK extends Serializable> implements BaseService<
 		repository.delete(id);
 	}
 
+	@Override
+	public T findOne(PK id) {
+
+		return repository.findOne(id);
+	}
+
 }
