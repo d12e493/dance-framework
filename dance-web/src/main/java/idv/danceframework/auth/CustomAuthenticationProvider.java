@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
 
 import idv.danceframework.service.UserInfoService;
 
-@Component
+@Component("customAuthenticationProvider")
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired

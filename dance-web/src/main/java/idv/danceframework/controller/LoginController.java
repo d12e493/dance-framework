@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Scope("prototype")
 public class LoginController extends BaseController {
 
-	@RequestMapping({ "/", "/login" })
+	@RequestMapping("/login")
 	public String welcome() {
 		System.out.println("login");
-		return "aa";
+		return "login";
 	}
 }

@@ -1,12 +1,21 @@
 group 'idv.danceframework'
 version '1.0-SNAPSHOT'
 
+
+
 allprojects {
 
     group "idv.danceframework"
     version "1.0.0-SNAPSHOT"
 
+	apply plugin: 'maven'
     apply plugin: 'eclipse'
+
+	configurations.all {
+	    resolutionStrategy {
+	        failOnVersionConflict()
+	    }
+	}
 
     repositories {
         mavenCentral()
@@ -15,6 +24,14 @@ allprojects {
 }
 
 subprojects {
+
+	apply plugin:'java'
+	apply plugin : 'eclipse-wtp'
+
+	dependencies {
+	    testCompile 'junit:junit:4.6'
+	}
+
     ext {
         SpringWebmvcVersion = '4.3.2.RELEASE'
     }

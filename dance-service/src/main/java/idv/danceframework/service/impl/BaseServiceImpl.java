@@ -2,44 +2,48 @@ package idv.danceframework.service.impl;
 
 import java.io.Serializable;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import idv.danceframework.service.BaseService;
 
-@Component
 @Transactional
 public class BaseServiceImpl<T, PK extends Serializable> implements BaseService<T, PK> {
 
-	@Autowired
-	protected JpaRepository<T, PK> repository;
+	@PersistenceContext(unitName="system")
+	@Qualifier(value = "entityManagerFactory")
+	private EntityManager entityManager;
+
+	private Class<T> clazz;
 
 	@Override
 	public T save(T t) {
-		return repository.save(t);
+		entityManager.persist(t);
+		return t;
 	}
 
 	@Override
 	public T update(T t) {
-		return repository.saveAndFlush(t);
+		return entityManager.merge(t);
 	}
 
 	@Override
 	public void delete(T t) {
-		repository.delete(t);
+		entityManager.remove(t);
 	}
 
 	@Override
 	public void delete(PK id) {
-		repository.delete(id);
+		entityManager.remove(findOne(id));
 	}
 
 	@Override
 	public T findOne(PK id) {
 
-		return repository.findOne(id);
+		return entityManager.find(clazz, id);
 	}
 
 }
