@@ -10,12 +10,6 @@ allprojects {
 
     apply plugin: 'eclipse'
 
-	configurations.all {
-	    resolutionStrategy {
-	        failOnVersionConflict()
-	    }
-	}
-
     repositories {
         mavenCentral()
         jcenter()
