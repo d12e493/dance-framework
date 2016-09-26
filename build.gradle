@@ -21,6 +21,10 @@ subprojects {
 	apply plugin:'java'
 	apply plugin : 'eclipse-wtp'
 
+	dependencies {		
+ 	    testCompile 'junit:junit:4.6'		
+ 	}
+
     ext {
         SpringWebmvcVersion = '4.3.2.RELEASE'
     }
