@@ -5,7 +5,10 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/classes/spring/application-security.xml</param-value>
+		<param-value>
+		/WEB-INF/classes/spring/application.xml
+		/WEB-INF/classes/spring/application-security.xml
+		</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -30,7 +33,6 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-			/WEB-INF/classes/spring/application.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
