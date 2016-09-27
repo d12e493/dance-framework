@@ -9,10 +9,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:application-dao.xml")
-public class BaseTest<Repository, T> extends AbstractJUnit4SpringContextTests {
+public abstract class BaseTest<Repository, T> extends AbstractJUnit4SpringContextTests {
 
 	@Autowired
 	protected Repository repository;
 
 	protected T entity;
+
+	public abstract void findOne();
 }

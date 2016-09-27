@@ -7,8 +7,10 @@ import idv.danceframework.entity.UserInfo;
 public class UserInfoRepositoryTest extends BaseTest<UserInfoRepository, UserInfo> {
 
 	@Test
-	public void test() {
-		repository.findAll();
+	@Override
+	public void findOne() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
