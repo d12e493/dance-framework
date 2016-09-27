@@ -12,6 +12,7 @@ allprojects {
 
     repositories {
         mavenCentral()
+        maven { url "http://repo.spring.io/release" } 
         jcenter()
     }
 }
@@ -22,10 +23,7 @@ subprojects {
 	apply plugin : 'eclipse-wtp'
 
 	dependencies {		
- 	    testCompile 'junit:junit:4.6'		
+ 	    testCompile 'junit:junit:4.12'		
  	}
 
-    ext {
-        SpringWebmvcVersion = '4.3.2.RELEASE'
-    }
 }
