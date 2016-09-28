@@ -22,3 +22,19 @@ eclipse {
         }
     }
 }
+task copyResource << {
+
+	println 'copy js & css'
+	
+	copy {
+		from project(':dance-resource').file('/css')
+		into file('/WebContent/css')
+	}	
+	
+	copy {
+		from project(':dance-resource').file('/js')
+		into file('/WebContent/js')
+	}
+}
+
+build.dependsOn copyResource
