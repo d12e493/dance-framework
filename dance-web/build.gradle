@@ -12,6 +12,7 @@ dependencies {
     compile group: 'org.springframework.security', name: 'spring-security-web', version: '4.1.0.RELEASE'
     compile group: 'org.springframework.security', name: 'spring-security-config', version: '4.1.0.RELEASE'
     compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    providedCompile group: 'javax.servlet', name: 'jsp-api', version: '2.0'
 }
 
 eclipse {
@@ -24,7 +25,7 @@ eclipse {
 }
 task copyResource << {
 
-	println 'copy js & css'
+	println 'copy js & css & fonts'
 	
 	copy {
 		from project(':dance-resource').file('/css')
