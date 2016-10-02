@@ -11,8 +11,10 @@ dependencies {
     compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
     compile group: 'org.springframework.security', name: 'spring-security-web', version: '4.1.0.RELEASE'
     compile group: 'org.springframework.security', name: 'spring-security-config', version: '4.1.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '4.1.0.RELEASE'
     compile group: 'javax.servlet', name: 'jstl', version: '1.2'
     providedCompile group: 'javax.servlet', name: 'jsp-api', version: '2.0'
+    compile 'ch.qos.logback:logback-classic:1.1.3'
 }
 
 eclipse {
@@ -28,13 +30,18 @@ task copyResource << {
 	println 'copy js & css & fonts'
 	
 	copy {
-		from project(':dance-resource').file('/css')
-		into file('/WebContent/css')
+		from project(':dance-resource').file('css')
+		into file('WebContent/css')
 	}	
 	
 	copy {
-		from project(':dance-resource').file('/js')
-		into file('/WebContent/js')
+		from project(':dance-resource').file('js')
+		into file('WebContent/js')
+	}
+	
+	copy {
+		from project(':dance-resource').file('fonts')
+		into file('WebContent/fonts')
 	}
 }
 

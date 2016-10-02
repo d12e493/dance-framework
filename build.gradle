@@ -20,6 +20,10 @@ subprojects {
 	apply plugin:'java'
 	apply plugin : 'eclipse-wtp'
 
+	configurations.all {
+	   exclude group: "commons-logging", module: "commons-logging"
+	}
+
 	dependencies {		
  	    testCompile 'junit:junit:4.12'		
  	}
