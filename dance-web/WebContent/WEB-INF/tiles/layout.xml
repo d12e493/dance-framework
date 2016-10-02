@@ -16,4 +16,8 @@
 	<definition name="login" template="/WEB-INF/pages/login/login.jsp">
 	</definition>
 
+	<definition name="dashboard" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/pages/dashboard/body.jsp" />
+	</definition>
+
 </tiles-definitions>

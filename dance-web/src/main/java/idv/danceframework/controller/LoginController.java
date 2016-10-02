@@ -1,30 +1,31 @@
 package idv.danceframework.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @Scope("prototype")
 public class LoginController extends BaseController {
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String welcome(ModelMap model) {
-		System.out.println("welcome");
-		return "home";
-	}
+	private final static Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
-	@RequestMapping(value = "home", method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/home" })
 	public String dashboard(ModelMap model) {
-		System.out.println("dashboard");
+
+		LOG.info("log in dashboard");
+
 		return "dashboard";
 	}
 
 	@RequestMapping("/login")
 	public String login(ModelMap model) {
-		System.out.println("login");
+
+		LOG.debug("login page");
+
 		return "login";
 	}
 }
