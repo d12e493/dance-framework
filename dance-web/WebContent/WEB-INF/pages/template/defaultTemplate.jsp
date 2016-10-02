@@ -8,11 +8,21 @@
 <title><tiles:getAsString name="title" /></title>
 </head>
 <body>
-	<div id="header_div">header</div>
-	<div id="content_div" class="row">
-		<div id="menu_div">menu</div>
-		<div id="body_div">body</div>
+	<div id="header_div" style="background-color: #34495e; height: 7%;">
+		<tiles:insertAttribute name="header" />
 	</div>
-	<div id="footer_div">footer</div>
+	<div id="content_div" class="row" style="height: 88%;">
+		<div id="menu_div" class="col-md-2"
+			style="background-color: #34495e; height: 100%;">
+			<tiles:insertAttribute name="menu" />
+		</div>
+		<div id="body_div" class="col-md-10"
+			style="background-color: #f2f2f2; height: 100%;">
+			<tiles:insertAttribute name="body" />
+		</div>
+	</div>
+	<div id="footer_div" style="background-color: #34495e; height: 5%;">
+		<tiles:insertAttribute name="footer" />
+	</div>
 </body>
 </html>
