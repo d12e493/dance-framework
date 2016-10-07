@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import idv.danceframework.bo.CurrentUser;
 import idv.danceframework.session.SessionWrapper;
 
-public class BaseController {
+public abstract class BaseController {
 
 	@Autowired
 	private SessionWrapper sessionWrapper;

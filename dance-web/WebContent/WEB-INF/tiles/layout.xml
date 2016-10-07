@@ -20,4 +20,7 @@
 		<put-attribute name="body" value="/WEB-INF/pages/dashboard/body.jsp" />
 	</definition>
 
+	<definition name="*-*" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/pages/{1}/{2}.jsp" />
+	</definition>
 </tiles-definitions>

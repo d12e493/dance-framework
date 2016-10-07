@@ -6,6 +6,7 @@
 
 	<http pattern="/css/**" security="none" />
 	<http pattern="/js/**" security="none" />
+	<http pattern="/fonts/**" security="none" />
 
 	<http auto-config="true" use-expressions="true">
 		<csrf disabled="true" />
