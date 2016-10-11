@@ -43,6 +43,11 @@ task copyResource << {
 		from project(':dance-resource').file('fonts')
 		into file('WebContent/fonts')
 	}
+	
+	copy {
+		from project(':dance-resource').file('dataTables')
+		into file('WebContent/dataTables')
+	}
 }
 
 build.dependsOn copyResource
