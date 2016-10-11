@@ -2,23 +2,14 @@ package idv.danceframework.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
  * @author Davis Chen
  *
  */
-@Entity
-@Table(schema = "SYSTEM", name = "MENU")
 public class Menu extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 8650496963428073573L;
 
-	@Id
-	@GeneratedValue
 	private Long menuId;
 	
 	private String name;

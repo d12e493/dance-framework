@@ -2,11 +2,8 @@ package idv.danceframework.entity;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-
-@MappedSuperclass
 public class BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -15,20 +12,15 @@ public class BaseEntity implements Serializable {
 	 * 資料狀態 <br/>
 	 * 1：啟用 0：不啟用
 	 */
-	@Column(name = "STATUS")
 	private boolean status = true;
 
-	@Column(name = "CREATE_USER_ID")
 	private Long createUserId;
 
-	@Column(name = "CREATE_TIME")
-	private Calendar createTime;
+	private Date createTime;
 
-	@Column(name = "UPDATE_USER_ID")
 	private Long updateUserId;
 
-	@Column(name = "UPDATE_TIME")
-	private Calendar updateTime;
+	private Date updateTime;
 
 	public boolean isStatus() {
 		return status;
@@ -46,11 +38,11 @@ public class BaseEntity implements Serializable {
 		this.createUserId = createUserId;
 	}
 
-	public Calendar getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(Calendar createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
@@ -62,11 +54,11 @@ public class BaseEntity implements Serializable {
 		this.updateUserId = updateUserId;
 	}
 
-	public Calendar getUpdateTime() {
+	public Date getUpdateTime() {
 		return updateTime;
 	}
 
-	public void setUpdateTime(Calendar updateTime) {
+	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 

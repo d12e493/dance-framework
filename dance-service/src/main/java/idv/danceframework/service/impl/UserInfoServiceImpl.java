@@ -12,7 +12,8 @@ import idv.danceframework.service.UserInfoService;
 import idv.danceframework.util.StringUtils;
 
 @Service
-public class UserInfoServiceImpl extends BaseServiceImpl<UserInfo, Long> implements UserInfoService {
+public class UserInfoServiceImpl extends BaseServiceImpl<UserInfoRepository, UserInfo, Long>
+		implements UserInfoService {
 
 	private final static Logger LOG = LoggerFactory.getLogger(UserInfoServiceImpl.class);
 
