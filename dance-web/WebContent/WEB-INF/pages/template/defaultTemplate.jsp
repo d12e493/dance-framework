@@ -8,7 +8,7 @@
 <title><tiles:getAsString name="title" /></title>
 </head>
 <body>
-	<div id="header_div" style="background-color: #34495e; height: 7%;">
+	<div id="header_div" style="background-color: #003366; height: 7%;">
 		<tiles:insertAttribute name="header" />
 	</div>
 	<div id="content_div" class="row" style="height: 88%;">
@@ -21,7 +21,7 @@
 			<tiles:insertAttribute name="body" />
 		</div>
 	</div>
-	<div id="footer_div" style="background-color: #34495e; height: 5%;">
+	<div id="footer_div" style="background-color: #003366; height: 5%;">
 		<tiles:insertAttribute name="footer" />
 	</div>
 </body>
