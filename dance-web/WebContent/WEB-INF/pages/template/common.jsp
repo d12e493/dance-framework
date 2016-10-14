@@ -13,3 +13,6 @@
 <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/dataTables/datatables.min.js"/>"></script>
 <script src="<c:url value="/dataTables/js/dataTables.bootstrap.min.js"/>"></script>
+
+<!-- custom javasscript -->
+<script src="<c:url value="/js/common/button.js"/>"></script>

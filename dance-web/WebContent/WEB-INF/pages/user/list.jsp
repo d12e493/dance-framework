@@ -16,10 +16,8 @@
 					<td colspan="2" align="center">
 						<button type="button" class="btn btn-primary">
 							<i class="fa fa-search fa-lg" aria-hidden="true">&nbsp;查詢</i>
-						</button>
-						<button type="button" class="btn btn-danger">
-							<i class="fa fa-times fa-lg" aria-hidden="true">&nbsp;清除</i>
-						</button>
+						</button> 
+						<jsp:include page="/WEB-INF/pages/button/reset.jsp"/>
 					</td>
 				</tr>
 			</tfoot>
