@@ -13,5 +13,5 @@ dependencies {
     compile group: 'commons-logging', name: 'commons-logging', version: '1.1'
     compile "com.mchange:c3p0:0.9.5-pre8"
     compile group: 'javax.transaction', name: 'jta', version: '1.1'
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.7'
+    compile group: 'log4j', name: 'log4j', version: '1.2.16'
 }

@@ -3,4 +3,5 @@ apply plugin: 'java'
 dependencies {
 	compile project(':dance-util')
 	compile group: 'org.springframework', name: 'spring-beans', version: '4.2.6.RELEASE'
+	compile group: 'com.github.pagehelper', name: 'pagehelper', version: '4.1.6'
 }

@@ -9,4 +9,5 @@
 		<result property="updateUserId" column="update_user_id" />
 		<result property="updateTime" column="update_time" />
 	</resultMap>
+	
 </mapper>

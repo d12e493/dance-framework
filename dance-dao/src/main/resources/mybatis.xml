@@ -3,12 +3,23 @@
 <configuration>
 	<settings>
 		<setting name="lazyLoadingEnabled" value="false" />
+		<setting name="callSettersOnNulls" value="true" />
+		<setting name="autoMappingBehavior" value="PARTIAL" />
+		<setting name="logImpl" value="LOG4J"/>
 	</settings>
 	<typeAliases>
 		<typeAlias type="idv.danceframework.entity.BaseEntity"
 			alias="BaseEntity" />
 		<typeAlias type="idv.danceframework.entity.UserInfo" alias="UserInfo" />
 	</typeAliases>
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<property name="dialect" value="mysql" />
+			<property name="offsetAsPageNum" value="true" />
+			<property name="rowBoundsWithCount" value="true" />
+			<property name="reasonable" value="true" />
+		</plugin>
+	</plugins>
 	<databaseIdProvider type="DB_VENDOR">
 		<property name="MySQL" value="mysql" />
 	</databaseIdProvider>

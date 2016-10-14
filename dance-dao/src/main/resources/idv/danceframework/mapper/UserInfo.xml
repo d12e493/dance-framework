@@ -7,10 +7,21 @@
 		<result property="email" column="email" />
 		<result property="password" column="password" />
 	</resultMap>
+	<resultMap type="idv.danceframework.lo.UserInfoLO" id="UserInfoLO"></resultMap>
 	<select id="findOne" parameterType="long" resultType="UserInfo">
 		select u.* from user_info u where u.usid = #{id}
 	</select>
 	<select id="findByEmail" parameterType="String" resultType="UserInfo">
 		select u.* from user_info u where u.email = #{email}
 	</select>
+	<select id="findAll" parameterType="Object" resultType="idv.danceframework.lo.UserInfoLO">
+		select
+		u.usid , u.name , u.email
+		from user_info u
+		<where>
+			<if test="email  != null and name != '' ">
+				u.email = #{email}
+			</if>
+		</where>
+	</select> 
 </mapper>

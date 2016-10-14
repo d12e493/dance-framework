@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:application-dao.xml")
+@ContextConfiguration(locations = { "classpath:application-dao.xml" })
 @Rollback
 @Transactional(transactionManager = "transactionManager")
 public abstract class BaseRepositoryTest<R extends BaseRepository> extends AbstractJUnit4SpringContextTests {
