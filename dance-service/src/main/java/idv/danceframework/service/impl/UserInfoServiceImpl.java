@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import idv.danceframework.entity.UserInfo;
+import idv.danceframework.lo.PageResult;
+import idv.danceframework.lo.UserInfoLO;
+import idv.danceframework.qo.PageRequest;
 import idv.danceframework.repository.UserInfoRepository;
 import idv.danceframework.service.UserInfoService;
 import idv.danceframework.util.StringUtils;
@@ -48,6 +51,12 @@ public class UserInfoServiceImpl extends BaseServiceImpl<UserInfoRepository, Use
 			return userInfoRepository.findByEmail(email);
 		}
 		return null;
+	}
+
+	@Override
+	public <UserInfoQO> PageResult<UserInfoLO> findAll(UserInfoQO queryObject, PageRequest pageRequest) {
+
+		return findAll(queryObject, pageRequest, UserInfoLO.class);
 	}
 
 }
