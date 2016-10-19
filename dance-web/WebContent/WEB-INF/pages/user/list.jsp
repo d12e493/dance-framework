@@ -8,15 +8,13 @@
 			<tbody>
 				<tr>
 					<th><label for="exampleInputEmail2">Email</label></th>
-					<td><input type="text" class="form-control"></td>
+					<td><input type="text" class="form-control" name="email"></td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="2" align="center">
-						<button type="button" class="btn btn-primary">
-							<i class="fa fa-search fa-lg" aria-hidden="true">&nbsp;查詢</i>
-						</button> 
+						<jsp:include page="/WEB-INF/pages/button/query.jsp"/> 
 						<jsp:include page="/WEB-INF/pages/button/reset.jsp"/>
 					</td>
 				</tr>

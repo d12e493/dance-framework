@@ -14,12 +14,12 @@
 	<select id="findByEmail" parameterType="String" resultType="UserInfo">
 		select u.* from user_info u where u.email = #{email}
 	</select>
-	<select id="findAll" parameterType="Object" resultType="idv.danceframework.lo.UserInfoLO">
+	<select id="findAll" resultType="idv.danceframework.lo.UserInfoLO">
 		select
 		u.usid , u.name , u.email
 		from user_info u
 		<where>
-			<if test="email  != null and name != '' ">
+			<if test="email  != null and email != '' ">
 				u.email = #{email}
 			</if>
 		</where>

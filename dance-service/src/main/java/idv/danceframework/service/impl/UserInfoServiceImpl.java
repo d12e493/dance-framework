@@ -10,6 +10,7 @@ import idv.danceframework.entity.UserInfo;
 import idv.danceframework.lo.PageResult;
 import idv.danceframework.lo.UserInfoLO;
 import idv.danceframework.qo.PageRequest;
+import idv.danceframework.qo.UserInfoQO;
 import idv.danceframework.repository.UserInfoRepository;
 import idv.danceframework.service.UserInfoService;
 import idv.danceframework.util.StringUtils;
@@ -54,8 +55,7 @@ public class UserInfoServiceImpl extends BaseServiceImpl<UserInfoRepository, Use
 	}
 
 	@Override
-	public <UserInfoQO> PageResult<UserInfoLO> findAll(UserInfoQO queryObject, PageRequest pageRequest) {
-
+	public PageResult<UserInfoLO> findAll(UserInfoQO queryObject, PageRequest pageRequest) {
 		return findAll(queryObject, pageRequest, UserInfoLO.class);
 	}
 

@@ -7,5 +7,5 @@ public interface BaseRepository<T, PK extends Serializable> {
 
 	T findOne(PK id);
 
-	List findAll(Object queryObject);
+	<R> List findAll(R queryObject);
 }
