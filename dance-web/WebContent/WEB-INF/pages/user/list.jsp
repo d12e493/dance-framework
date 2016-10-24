@@ -22,6 +22,9 @@
 		</table>
 	</form>
 </div>
+<div id="action_div" class="col-md-12">
+	<jsp:include page="/WEB-INF/pages/button/add.jsp"/> 
+</div>
 <div id="list_div">
 	<table id="list_table" class="table table-hover">
 		<thead>
@@ -38,3 +41,6 @@
 		</tfoot>
 	</table>
 </div>
+<form id="action_form">
+	
+</form>

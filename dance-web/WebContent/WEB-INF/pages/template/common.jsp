@@ -34,4 +34,14 @@
 		});
 		return o;
 	};
+
+	function resetDataTablesOrder(data) {
+		var orderArray = new Array();
+		for (var i = 0; i < data.order.length; i++) {
+			var order = data.order[i];
+			order.column = data.columns[order.column].name;
+			orderArray[i] = order;
+		}
+		data.order = orderArray;
+	}
 </script>

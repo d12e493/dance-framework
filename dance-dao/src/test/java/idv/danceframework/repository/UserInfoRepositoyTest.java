@@ -10,6 +10,7 @@ import com.github.pagehelper.PageHelper;
 import idv.danceframework.entity.UserInfo;
 import idv.danceframework.lo.PageResult;
 import idv.danceframework.lo.UserInfoLO;
+import idv.danceframework.qo.PageRequest;
 import idv.danceframework.qo.UserInfoQO;
 
 public class UserInfoRepositoyTest extends BaseRepositoryTest<UserInfoRepository> {
@@ -26,7 +27,7 @@ public class UserInfoRepositoyTest extends BaseRepositoryTest<UserInfoRepository
 		UserInfoQO qo = new UserInfoQO();
 
 		PageHelper.startPage(1, 10);
-		List<UserInfoLO> list = repository.findAll(qo);
+		List<UserInfoLO> list = repository.findAll(qo, new PageRequest());
 		PageResult<UserInfoLO> page = new PageResult<UserInfoLO>(list);
 
 		System.out.println(page);

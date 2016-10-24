@@ -14,4 +14,10 @@ $(function() {
 	$('button[name="form_query"]').click(function() {
 		list_table.ajax.reload();
 	});
+
+	$('button[name="form_add"]').click(function() {
+		$('#action_form').attr('method', 'post');
+		$('#action_form').attr('action', 'prepareAdd');
+		$('#action_form').submit();
+	});
 })

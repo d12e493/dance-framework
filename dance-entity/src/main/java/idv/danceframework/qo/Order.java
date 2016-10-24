@@ -5,7 +5,7 @@ public class Order {
 		ASC, DESC;
 	}
 
-	private Direction direction;
+	private Direction direction = Direction.ASC;
 
 	private String column;
 
@@ -32,5 +32,11 @@ public class Order {
 
 	public void setColumn(String column) {
 		this.column = column;
+	}
+
+	public void setDir(String direction) {
+		if (direction.equalsIgnoreCase(Direction.DESC.name())) {
+			this.direction = Direction.DESC;
+		}
 	}
 }

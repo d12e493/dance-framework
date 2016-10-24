@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>  
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="idv.danceframework.repository.UserInfoRepository">
-	<resultMap type="UserInfo" id="UserInfo" extends="idv.danceframework.repository.BaseRepository.BaseEntity">
+	<resultMap type="UserInfo" id="UserInfo"
+		extends="idv.danceframework.repository.BaseRepository.BaseEntity">
 		<id property="usid" column="usid" />
 		<result property="name" column="name" />
 		<result property="email" column="email" />
@@ -9,7 +10,8 @@
 	</resultMap>
 	<resultMap type="idv.danceframework.lo.UserInfoLO" id="UserInfoLO"></resultMap>
 	<select id="findOne" parameterType="long" resultType="UserInfo">
-		select u.* from user_info u where u.usid = #{id}
+		select u.*
+		from user_info u where u.usid = #{id}
 	</select>
 	<select id="findByEmail" parameterType="String" resultType="UserInfo">
 		select u.* from user_info u where u.email = #{email}
@@ -19,9 +21,9 @@
 		u.usid , u.name , u.email
 		from user_info u
 		<where>
-			<if test="email  != null and email != '' ">
-				u.email = #{email}
+			<if test="qo.email  != null and qo.email != '' ">
+				LOWER(u.email) LIKE LOWER("%"#{qo.email}"%")
 			</if>
 		</where>
-	</select> 
+	</select>
 </mapper>

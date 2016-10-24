@@ -7,26 +7,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><tiles:getAsString name="title" /></title>
 <style>
-#header_div {
-	color: #d9d9d9
+#header_nav {
+	color: #d9d9d9;
+	left: 0;
+	right: 0;
+	top: 0;
 }
 </style>
 </head>
-<body style="background-color: #00001a;">
-	<div id="header_div" class="row" style="height: 7%;">
-		<tiles:insertAttribute name="header" />
-	</div>
-	<div id="content_div" class="row" style="height: 88%;">
-		<div id="menu_div" class="col-md-2" style="height: 100%;">
-			<tiles:insertAttribute name="menu" />
+<body style="background-color: #00001a; padding-top:50px;">
+	<tiles:insertAttribute name="header" />
+	<div class="container-fluid">
+		<div id="content_div" class="row">
+			<div id="menu_div" class="col-md-2">
+				<tiles:insertAttribute name="menu" />
+			</div>
+			<div id="body_div" class="col-md-10"
+				style="background-color: #e6e6e6; min-height: 100%;">
+				<tiles:insertAttribute name="body" />
+			</div>
 		</div>
-		<div id="body_div" class="col-md-10"
-			style="background-color: #e6e6e6; height: 100%;">
-			<tiles:insertAttribute name="body" />
-		</div>
-	</div>
-	<div id="footer_div" style="height: 5%;">
-		<tiles:insertAttribute name="footer" />
 	</div>
 </body>
 </html>

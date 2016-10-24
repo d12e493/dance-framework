@@ -50,7 +50,7 @@ public abstract class BaseServiceImpl<R extends BaseRepository, T, PK extends Se
 
 	protected <W> PageResult findAll(Object queryObject, PageRequest pageRequest, Class<W> clazz) {
 		PageHelper.startPage(pageRequest.getCurrentPage(), pageRequest.getRowsPerPage());
-		List<W> list = repository.findAll(queryObject);
+		List<W> list = repository.findAll(queryObject,pageRequest);
 		return new PageResult<W>(list);
 	}
 

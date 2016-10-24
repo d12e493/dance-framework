@@ -1,5 +1,8 @@
 package idv.danceframework.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import idv.danceframework.qo.PageRequest;
 import idv.danceframework.qo.UserInfoQO;
 import idv.danceframework.service.UserInfoService;
 import idv.danceframework.test.Test;
+import idv.danceframework.wrapper.BaseWrapper;
 
 @Controller
 @Scope("prototype")
@@ -44,6 +48,12 @@ public class UserInfoController extends BaseController implements BaseFlow<UserI
 	public Test test() {
 
 		return new Test();
+	}
+
+	@Override
+	public <BW extends BaseWrapper> String prepareAdd(BW bw, HttpServletRequest request, HttpServletResponse response) {
+		
+		return "user-add";
 	}
 
 }
