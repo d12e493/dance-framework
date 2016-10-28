@@ -59,4 +59,9 @@ public class UserInfoServiceImpl extends BaseServiceImpl<UserInfoRepository, Use
 		return findAll(queryObject, pageRequest, UserInfoLO.class);
 	}
 
+	@Override
+	public void remove(Long id) {
+		
+	}
+
 }
