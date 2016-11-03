@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import idv.danceframework.bo.CurrentUser;
 import idv.danceframework.lo.PageResult;
 import idv.danceframework.lo.UserInfoLO;
 import idv.danceframework.qo.PageRequest;
@@ -32,7 +33,7 @@ public class UserInfoController extends BaseController implements BaseFlow<UserI
 	public String list() {
 
 		LOG.debug("list");
-
+		
 		return "user-list";
 	}
 
@@ -52,8 +53,15 @@ public class UserInfoController extends BaseController implements BaseFlow<UserI
 
 	@Override
 	public <BW extends BaseWrapper> String prepareAdd(BW bw, HttpServletRequest request, HttpServletResponse response) {
-		
+
 		return "user-add";
+	}
+
+	@Override
+	public <UserInfoWrapper> String add(UserInfoWrapper userInfoWrapper, HttpServletRequest request,
+			HttpServletResponse response) {
+
+		return list();
 	}
 
 }

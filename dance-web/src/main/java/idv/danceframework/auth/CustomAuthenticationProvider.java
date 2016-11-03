@@ -63,6 +63,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		if (user != null) {
 			CurrentUser sessionUser = new CurrentUser(user);
 			sessionWrapper.setUser(sessionUser);
+			System.out.println("sessionWrapper memory : " + sessionWrapper.hashCode());
 		}
 	}
 

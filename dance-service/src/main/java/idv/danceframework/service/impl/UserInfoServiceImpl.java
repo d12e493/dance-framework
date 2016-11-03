@@ -13,6 +13,7 @@ import idv.danceframework.qo.PageRequest;
 import idv.danceframework.qo.UserInfoQO;
 import idv.danceframework.repository.UserInfoRepository;
 import idv.danceframework.service.UserInfoService;
+import idv.danceframework.session.SessionWrapper;
 import idv.danceframework.util.StringUtils;
 
 @Service
@@ -56,6 +57,7 @@ public class UserInfoServiceImpl extends BaseServiceImpl<UserInfoRepository, Use
 
 	@Override
 	public PageResult<UserInfoLO> findAll(UserInfoQO queryObject, PageRequest pageRequest) {
+		SessionWrapper wrapper=getSessionWrapper();
 		return findAll(queryObject, pageRequest, UserInfoLO.class);
 	}
 

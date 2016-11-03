@@ -27,4 +27,7 @@ public interface BaseFlow<Query, List> {
 
 	@RequestMapping(value = "/prepareAdd", method = { RequestMethod.POST })
 	<BW extends BaseWrapper> String prepareAdd(BW bw, HttpServletRequest request, HttpServletResponse response);
+
+	@RequestMapping(value = "/add", method = { RequestMethod.POST })
+	<O> String add(O o, HttpServletRequest request, HttpServletResponse response);
 }

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="<c:url value="/js/user/add.js"/>"></script>
-<form method="post" class="form-horizontal">
+<form method="post" class="form-horizontal" action="add">
 	<div class="form-group">
 		<label for="" class="col-sm-2 control-label">Email</label>
 		<div class="col-sm-10">

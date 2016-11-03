@@ -3,6 +3,7 @@ package idv.danceframework.session;
 import java.io.Serializable;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 import idv.danceframework.bo.CurrentUser;
@@ -14,7 +15,7 @@ import idv.danceframework.bo.CurrentUser;
  *
  */
 @Component
-@Scope("session")
+@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class SessionWrapper implements Serializable {
 
 	private static final long serialVersionUID = 1L;
