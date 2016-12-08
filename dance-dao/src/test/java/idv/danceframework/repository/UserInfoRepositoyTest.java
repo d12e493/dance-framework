@@ -1,7 +1,9 @@
 package idv.danceframework.repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -17,6 +19,8 @@ import idv.danceframework.qo.UserInfoQO;
 
 @Rollback(value = false)
 public class UserInfoRepositoyTest extends BaseRepositoryTest<UserInfoRepository> {
+
+	private Map<String, Integer> mappingMap = new HashMap<String, Integer>();
 
 	private class Mapping {
 		private int primary;
@@ -67,6 +71,7 @@ public class UserInfoRepositoyTest extends BaseRepositoryTest<UserInfoRepository
 	@Test
 	public void forSna() {
 		List<String> imeiList = repository.findAllImei();
+		int imeiIndex = 1;
 		for (String imei : imeiList) {
 			List<Integer> pidList = repository.findPidListByImei(imei);
 			List<Mapping> mappingList = transfer(pidList);
@@ -76,19 +81,45 @@ public class UserInfoRepositoyTest extends BaseRepositoryTest<UserInfoRepository
 				int p1 = mapping.getPrimary();
 				int p2 = mapping.getRemain();
 
-				// find mapping row
-				Integer weight = repository.findAppWeight(p1, p2);
+				transferToMap(p1, p2);
+			}
+			repository.updateImei(imei);
+			System.out.println("imeiList : " + imeiIndex + " --- finish ---");
+			imeiIndex++;
+		}
+
+		int mappingIndex = 1;
+		int remainIndex = mappingMap.size();
+		if (mappingMap.size() > 0) {
+			for (String k : mappingMap.keySet()) {
+				String[] keys = k.split("_");
+
+				int k1 = Integer.parseInt(keys[0]);
+				int k2 = Integer.parseInt(keys[1]);
+				int v = mappingMap.get(k);
+
+				Integer weight = repository.findAppWeight(k1, k2);
 				// if not exist insert
 				if (weight == null) {
-					repository.insertAppWeight(p1, p2);
+					repository.insertAppWeight(k1, k2, v);
 				}
 				// or update
 				else {
-					repository.updateAppWeight(p1, p2, weight + 1);
+					repository.updateAppWeight(k1, k2, weight + v);
 				}
+				System.out.println("mappingMap : " + mappingIndex + " --- finish --- " + " remain :" + remainIndex);
+				mappingIndex++;
+				remainIndex--;
 			}
-			repository.updateImei(imei);
 		}
+	}
+
+	private void transferToMap(int p1, int p2) {
+		String key = Integer.toString(p1) + "_" + Integer.toString(p2);
+		if (!mappingMap.containsKey(key)) {
+			mappingMap.put(key, 0);
+		}
+		mappingMap.put(key, mappingMap.get(key) + 1);
 	}
 
 	private List<Mapping> transfer(List<Integer> list) {

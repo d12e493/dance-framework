@@ -16,7 +16,7 @@ public interface UserInfoRepository extends BaseRepository<UserInfo, Long> {
 	@Select("select pid from sna.pkg_list where pid <=10 order by pid asc")
 	List<Integer> findPidList();
 
-	@Select("select imei from sna.imei_list where status = 0 limit 1000")
+	@Select("select imei from sna.imei_list where status = 0")
 	List<String> findAllImei();
 
 	@Select("select distinct pid from sna.imei_app where imei = #{imei} order by pid asc")
@@ -25,8 +25,8 @@ public interface UserInfoRepository extends BaseRepository<UserInfo, Long> {
 	@Select("select weight from sna.app_weight where pid1 = #{0} and pid2 = #{1}")
 	Integer findAppWeight(int p1, int p2);
 
-	@Insert("insert into sna.app_weight values(#{0},#{1},1)")
-	void insertAppWeight(int p1, int p2);
+	@Insert("insert into sna.app_weight values(#{0},#{1},#{2},'Undirected')")
+	void insertAppWeight(int p1, int p2,int weight);
 
 	@Update("update sna.app_weight set weight = #{count} where pid1 = #{0} and pid2 = #{1}")
 	void updateAppWeight(int p1, int p2, @Param("count") int count);
