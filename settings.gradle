@@ -5,6 +5,7 @@ include 'dance-util'
 include 'dance-dao'
 include 'dance-service'
 include 'dance-web'
+include 'dance-admin'
 include 'dance-properties'
 include 'dance-resource'
 

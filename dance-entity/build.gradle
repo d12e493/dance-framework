@@ -4,5 +4,6 @@ dependencies {
 	compile project(':dance-util')
 	compile group: 'org.springframework', name: 'spring-beans', version: '4.2.6.RELEASE'
 	compile group: 'org.springframework', name: 'spring-context', version: '4.2.6.RELEASE'
+	compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.0.Final'
 	compile group: 'com.github.pagehelper', name: 'pagehelper', version: '4.1.6'
 }

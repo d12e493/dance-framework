@@ -31,21 +31,30 @@
 		<property name="maxStatements" value="${main.maxStatements}" />
 	</bean>
 
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="mainDataSource" />
+	<bean id="mainEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="mainDataSource"></property>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean>
+		</property>
+		<property name="packagesToScan" value="idv.danceframework.entity"></property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+			</props>
+		</property>
 	</bean>
 
-	<mybatis:scan base-package="idv.danceframework.repository" />
-
-	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="mainDataSource" />
-		<property name="configLocation" value="classpath:mybatis.xml" />
-		<property name="mapperLocations" value="classpath:idv/danceframework/mapper/**/*.xml" />
+	<bean id="mainTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="mainEntityManagerFactory"></property>
 	</bean>
 
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="idv.danceframework.repository" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-	</bean>
+	<tx:annotation-driven transaction-manager="mainTransactionManager" />
+
+	<jpa:repositories base-package="idv.danceframework.repository" transaction-manager-ref="mainTransactionManager"
+		entity-manager-factory-ref="mainEntityManagerFactory"/>
 </beans>

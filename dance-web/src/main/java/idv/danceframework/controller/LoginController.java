@@ -7,9 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import idv.danceframework.lo.PageResult;
-import idv.danceframework.qo.PageRequest;
-
 @Controller
 @Scope("prototype")
 public class LoginController extends BaseController {
