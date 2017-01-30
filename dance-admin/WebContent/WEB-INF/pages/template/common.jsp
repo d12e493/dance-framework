@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+<link rel="stylesheet" href="dist/css/skins/skin-purple.min.css">
 
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>

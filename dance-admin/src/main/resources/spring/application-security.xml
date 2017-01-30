@@ -12,7 +12,7 @@
 		<csrf disabled="true" />
 		<intercept-url pattern="/dashboard" access="permitAll" />
 		<intercept-url pattern="/login" access="permitAll" />
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" username-parameter="email"
 			password-parameter="password" authentication-failure-url="/Access_Denied" />
 		<csrf />
