@@ -6,6 +6,7 @@
 			<li class="header">主選單</li>
 			<li><a href="#"><i class="fa fa-fw fa-users"></i> 使用者管理</a></li>
 			<li><a href="#"><i class="fa fa-fw fa-key"></i> 角色管理</a></li>
+			<li><a href="#"><i class="fa fa-fw fa-commenting"></i> 公告發布</a></li>
 			<li><a href="#"><i class="fa fa-fw fa-cube"></i> 產品管理</a></li>
 			<li><a href="#"><i class="fa fa-fw fa-bars"></i> 產品分類設定</a></li>
 			<li><a href="#"><i class="fa fa-fw fa-cart-plus"></i> 訂單管理</a></li>
