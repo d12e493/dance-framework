@@ -2,45 +2,47 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="<c:url value="/js/user/list.js"/>"></script>
-<div id="query_div" class="col-md-offset-2 col-md-8">
-	<form id="query_form">
-		<table class="table table-hover">
-			<tbody>
-				<tr>
-					<th><label for="exampleInputEmail2">Email</label></th>
-					<td><input type="text" class="form-control" name="email"></td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="2" align="center">
-						<jsp:include page="/WEB-INF/pages/button/query.jsp"/> 
-						<jsp:include page="/WEB-INF/pages/button/reset.jsp"/>
-					</td>
-				</tr>
-			</tfoot>
-		</table>
-	</form>
-</div>
 <div id="action_div" class="col-md-12">
-	<jsp:include page="/WEB-INF/pages/button/add.jsp"/> 
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">使用者列表</h3>
+		</div>
+		<!-- /.box-header -->
+		<div class="box-body">
+			<form id="query_form">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th colspan="2"><jsp:include
+									page="/WEB-INF/pages/button/add.jsp" /></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th><label for="exampleInputEmail2">Email</label></th>
+							<td><input type="text" class="form-control" name="email"></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2" align="center"><jsp:include
+									page="/WEB-INF/pages/button/query.jsp" /> <jsp:include
+									page="/WEB-INF/pages/button/reset.jsp" /></td>
+						</tr>
+					</tfoot>
+				</table>
+			</form>
+			<table id="list_table" class="table table-bordered table-hover">
+				<thead class="bg-black disabled color-palette">
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>E-Mail</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
 </div>
-<div id="list_div">
-	<table id="list_table" class="table table-hover">
-		<thead>
-			<tr>
-				<th>USID</th>
-				<th>Email</th>
-			</tr>
-		</thead>
-		<tfoot>
-			<tr>
-				<th>USID</th>
-				<th>Email</th>
-			</tr>
-		</tfoot>
-	</table>
-</div>
-<form id="action_form">
-	
-</form>
+<form id="action_form"></form>

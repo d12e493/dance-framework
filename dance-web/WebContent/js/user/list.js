@@ -7,6 +7,7 @@ $(function() {
 			"data" : function(d) {
 				d.email = $('#query_form input[name="email"]').val();
 				resetDataTablesOrder(d);
+				return JSON.stringify(d);
 			},
 			"dataSrc" : function(json) {
 				return json.list;

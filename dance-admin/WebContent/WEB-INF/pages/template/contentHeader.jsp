@@ -4,10 +4,16 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>
-		Dashboard <small>Version 2.0</small>
+		<c:if test="${not empty contentHeader.icon}">
+			<i class="${contentHeader.icon }"></i>
+		</c:if>
+		
+		${contentHeader.title } <small>${contentHeader.subTitle }</small>
 	</h1>
+	<!-- bread
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 		<li class="active">Dashboard</li>
 	</ol>
+	 -->
 </section>

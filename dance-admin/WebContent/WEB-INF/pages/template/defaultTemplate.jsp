@@ -13,6 +13,15 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
 <title><tiles:getAsString name="title" /></title>
+<style type="text/css">
+table#list_table {
+	border-collapse: collapse;
+}
+
+table#list_table, table#list_table th, table#list_table td {
+	border: 1px solid black;
+}
+</style>
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 	<div class="wrapper">
@@ -23,7 +32,13 @@
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<tiles:insertAttribute name="contentHeader" />
-			<tiles:insertAttribute name="body" />
+			<!-- Main content -->
+			<section class="content">
+				<!-- Info boxes -->
+				<div class="row">
+					<tiles:insertAttribute name="body" />
+				</div>
+			</section>
 		</div>
 		<!-- /.content-wrapper -->
 		<tiles:insertAttribute name="footer" />

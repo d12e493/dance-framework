@@ -2,17 +2,17 @@ package idv.danceframework.service;
 
 import java.io.Serializable;
 
-public interface BaseService<T, PK extends Serializable> {
+public interface BaseService {
 
-	Long save(T t);
+	<T> T save(T t);
 
-	T update(T t);
+	<T> T update(T t);
 
-	void delete(T t);
+	<T> void delete(T t);
 
-	void delete(PK id);
+	void delete(Serializable id);
 
-	void remove(PK id);
+	<T> void remove(T t);
 
-	T findOne(PK id);
+	<T> T findOne(Class<T> clazz, Serializable id);
 }

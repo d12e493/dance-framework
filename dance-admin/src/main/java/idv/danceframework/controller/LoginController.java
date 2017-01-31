@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @Scope("prototype")
@@ -14,11 +15,13 @@ public class LoginController extends BaseController {
 	private final static Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
 	@RequestMapping(value = { "/", "/dashboard" })
-	public String dashboard(ModelMap model) {
+	public ModelAndView dashboard(ModelMap model) {
 
 		LOG.info("log in dashboard");
 
-		return "dashboard";
+		super.contentHeader.setTitle("Dashboard");
+		
+		return modelAndView("dashboard");
 	}
 
 	@RequestMapping("/login")
