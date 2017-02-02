@@ -1,15 +1,23 @@
 package idv.danceframework.vo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import idv.danceframework.sql.CustomNativeQuery;
+
+@CustomNativeQuery(query = "SELECT u.user_id,u.name,u.email,u.status " + " FROM user_ u ")
+@Entity
 public class UserVO {
+	@Id
 	private long userId;
 	private String name;
 	private String email;
 	private Integer status;
 
-	public UserVO(){
-		
+	public UserVO() {
+
 	}
-	
+
 	public UserVO(long userId, String name, String email, Integer status) {
 		super();
 		this.userId = userId;

@@ -37,7 +37,12 @@
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean>
 		</property>
-		<property name="packagesToScan" value="idv.danceframework.entity"></property>
+		<property name="packagesToScan">
+			<list>
+				<value>idv.danceframework.entity</value>
+				<value>idv.danceframework.vo</value>
+			</list>
+		</property>
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
@@ -55,6 +60,9 @@
 
 	<tx:annotation-driven transaction-manager="mainTransactionManager" />
 
-	<jpa:repositories base-package="idv.danceframework.repository" transaction-manager-ref="mainTransactionManager"
-		entity-manager-factory-ref="mainEntityManagerFactory"/>
+	<jpa:repositories base-package="idv.danceframework.repository"
+		transaction-manager-ref="mainTransactionManager"
+		entity-manager-factory-ref="mainEntityManagerFactory" />
+
+	<bean id="baseRepository" class="idv.danceframework.sql.NativeSQLRepository" />
 </beans>

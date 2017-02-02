@@ -14,10 +14,10 @@ $(function() {
 		}, {
 			"data" : "name",
 			"name" : "u.email"
-		},{
+		}, {
 			"data" : "email",
 			"name" : "u.email"
-		},{
+		}, {
 			"data" : "status",
 			"name" : "u.email"
 		} ],
@@ -25,6 +25,7 @@ $(function() {
 		"processing" : true,
 		"serverSide" : true,
 		"bFilter" : false,
-		"bPaginate" : true
+		"bPaginate" : true,
+		"iDisplayLength" : 10
 	});
 });

@@ -2,12 +2,22 @@ package idv.danceframework.lo;
 
 import java.util.List;
 
+import idv.danceframework.qo.PageRequest;
+
 public class PageResult {
 	private int iTotalRecords;
 	private int iTotalDisplayRecords;
 	private String sEcho;
 	private List data;
 
+	public PageResult(){
+		
+	}
+	
+	public PageResult(List list,PageRequest request,long totalData){
+		
+	}
+	
 	public int getiTotalRecords() {
 		return iTotalRecords;
 	}
