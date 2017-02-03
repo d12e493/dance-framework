@@ -2,7 +2,7 @@ package idv.danceframework.util;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
 
-public class PropertyUtils extends org.apache.commons.beanutils.PropertyUtils {
+public class DancePropertyUtils extends org.apache.commons.beanutils.PropertyUtils {
 
 	public static boolean hasProperty(Object obj, String propertyName) {
 		boolean flag = false;
@@ -24,6 +24,16 @@ public class PropertyUtils extends org.apache.commons.beanutils.PropertyUtils {
 			BeanUtilsBean.getInstance().setProperty(obj, propertyName, value);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	public static void copyProperties(Object source, Object target, String... peopertyNames) {
+		for (String propertyName : peopertyNames) {
+			try {
+				BeanUtilsBean.getInstance().copyProperty(source, propertyName, target);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
