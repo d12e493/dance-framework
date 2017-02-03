@@ -28,10 +28,15 @@ public class UserController extends BaseController {
 
 	private final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
-	@RequestMapping("/list")
-	public ModelAndView list() {
+	private void initHeader(){
 		super.contentHeader.setTitle("使用者管理");
 		super.contentHeader.setIcon("fa fa-fw fa-users");
+	}
+	
+	@RequestMapping("/list")
+	public ModelAndView list() {
+		
+		initHeader();
 
 		return modelAndView("user-list");
 	}
@@ -65,6 +70,9 @@ public class UserController extends BaseController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView add() {
 
+		initHeader();
+		super.contentHeader.setSubTitle("新增");
+		
 		return modelAndView("user-addEdit");
 	}
 
@@ -75,7 +83,7 @@ public class UserController extends BaseController {
 		DancePropertyUtils.copyProperties(inputUser, saveUser, "name", "email", "password");
 
 		try {
-
+			baseService.save(saveUser);
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 		}
