@@ -6,8 +6,10 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.SystemPropertyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,34 +33,29 @@ public class UserController extends BaseController {
 	}
 
 	@RequestMapping(value = "/query", method = RequestMethod.POST)
-	public @ResponseBody PageResult query(PageRequest<UserVO> pageRequest,
+	public @ResponseBody PageResult query(PageRequest pageRequest,UserVO vo,
 			HttpServletRequest requestPageRequest) {
 
 		PageResult result = new PageResult();
-
-		pageRequest.getSortList();
 		
 		List<UserVO> userList = new ArrayList<UserVO>();
 
 		userList.add(new UserVO(1L, UUID.randomUUID().toString(), "123@gmail.com", 1));
 		userList.add(new UserVO(17L, UUID.randomUUID().toString(), "123@gmail.com", 1));
-		userList.add(new UserVO(28L, UUID.randomUUID().toString(), "123@gmail.com", 1));
+		userList.add(new UserVO(28L, UUID.randomUUID().toString(), "123@gmail.com", -1));
 		userList.add(new UserVO(138L, UUID.randomUUID().toString(), "123@gmail.com", 1));
 		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
-		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
-		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
-		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
-		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
-		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
-		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
-		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
+		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", -1));
 		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
 		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
 		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
 		userList.add(new UserVO(2L, UUID.randomUUID().toString(), "123@gmail.com", 1));
 
 		result.setData(userList);
-
+		
+		result.setiTotalDisplayRecords(25);
+		result.setiTotalRecords(10);
+		
 		return result;
 	}
 }

@@ -32,17 +32,13 @@ public class NativeSQLRepository {
 
 			Query query = getQuery(wrapper);
 
-			// query.setMaxResults(request.getPageSize());
-			// query.setFirstResult((request.getPageNumber()) *
-			// request.getPageSize());
-
-			query.setMaxResults(10);
-			query.setFirstResult(0);
+			query.setMaxResults(wrapper.getRequest().getEnd());
+			query.setFirstResult(wrapper.getRequest().getStart());
 
 			List list = query.getResultList();
 
 			if (list != null && list.size() > 0) {
-				return new PageResult(list, wrapper.getRequest(), total);
+				return new PageResult(list, total);
 			}
 		}
 

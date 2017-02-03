@@ -7,10 +7,11 @@ import java.util.Map;
 
 import idv.danceframework.qo.Order.Direction;
 
-public class PageRequest<T> {
-	private T object;
+public class PageRequest {
 	private List<HashMap<String, String>> order = new ArrayList<HashMap<String, String>>();
 	private List<Order> sortList;
+	private int start = 0;
+	private int end = 10;
 
 	public List<HashMap<String, String>> getOrder() {
 		return order;
@@ -18,14 +19,6 @@ public class PageRequest<T> {
 
 	public void setOrder(List<HashMap<String, String>> order) {
 		this.order = order;
-	}
-
-	public T getObject() {
-		return object;
-	}
-
-	public void setObject(T object) {
-		this.object = object;
 	}
 
 	public List<Order> getSortList() {
@@ -57,5 +50,21 @@ public class PageRequest<T> {
 
 	public void setSortList(List<Order> sortList) {
 		this.sortList = sortList;
+	}
+
+	public int getStart() {
+		return start;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
 	}
 }

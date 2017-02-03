@@ -2,8 +2,6 @@ package idv.danceframework.lo;
 
 import java.util.List;
 
-import idv.danceframework.qo.PageRequest;
-
 public class PageResult {
 	private int iTotalRecords;
 	private int iTotalDisplayRecords;
@@ -14,8 +12,10 @@ public class PageResult {
 		
 	}
 	
-	public PageResult(List list,PageRequest request,long totalData){
-		
+	public PageResult(List list,long totalData){
+		this.data = list;
+		this.iTotalRecords = (int)totalData;
+		this.iTotalDisplayRecords = data.size();
 	}
 	
 	public int getiTotalRecords() {

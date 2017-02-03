@@ -17,7 +17,7 @@ public class PageQueryWrapper<T> {
 
 	private Class<T> queryClass;
 
-	private PageRequest<T> request;
+	private PageRequest request;
 
 	private PageResult result;
 
@@ -73,11 +73,11 @@ public class PageQueryWrapper<T> {
 		this.queryClass = queryClass;
 	}
 
-	public PageRequest<T> getRequest() {
+	public PageRequest getRequest() {
 		return request;
 	}
 
-	public void setRequest(PageRequest<T> request) {
+	public void setRequest(PageRequest request) {
 		this.request = request;
 	}
 

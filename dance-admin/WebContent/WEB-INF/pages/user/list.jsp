@@ -18,9 +18,18 @@
 						</tr>
 					</thead>
 					<tbody>
+					<tr>
+							<th><label for="">Name</label></th>
+							<td><input type="text" class="form-control" name="name" id="name"></td>
+						</tr>
 						<tr>
-							<th><label for="exampleInputEmail2">Email</label></th>
-							<td><input type="text" class="form-control" name="email"></td>
+							<th><label for="">Email</label></th>
+							<td><input type="text" class="form-control" name="email" id="email"></td>
+						</tr>
+						<tr>
+							<th><label for="">Status</label></th>
+							<td><label class="radio-inline"><input type="radio" name="status" value="1" checked>啟用</label>
+							<label class="radio-inline"><input type="radio" name="status" value="-1">停用</label></td>
 						</tr>
 					</tbody>
 					<tfoot>
@@ -35,10 +44,12 @@
 			<table id="list_table" class="table table-bordered table-hover">
 				<thead class="bg-black disabled color-palette">
 					<tr>
-						<th>ID</th>
+						<th>No.</th>
+						<th>User ID</th>
 						<th>Name</th>
 						<th>E-Mail</th>
 						<th>Status</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 			</table>

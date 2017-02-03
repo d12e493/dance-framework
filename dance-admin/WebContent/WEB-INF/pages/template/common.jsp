@@ -24,7 +24,11 @@
 
 <link rel="stylesheet"
 	href="<c:url value="/plugins/datatables/dataTables.bootstrap.css"/>">
-
+<style>
+table.dataTable.table-hover tbody tr:hover {
+  background-color: #e6ffff;
+}
+</style>
 <!-- jQuery 2.2.3 -->
 <script src="<c:url value="/plugins/jQuery/jquery-2.2.3.min.js"/>"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -66,4 +70,37 @@
 		}
 		data.order = orderArray;
 	}
+	
+	// datatable init setting
+	$.extend( true, $.fn.dataTable.defaults, {
+		"bLengthChange" : false,
+		"processing" : true,
+		"serverSide" : true,
+		"bFilter" : false,
+		"bPaginate" : true,
+		"deferLoading": 0,
+		"order": [],
+		"language" : {
+			"processing" : "處理中...",
+			"loadingRecords" : "載入中...",
+			"lengthMenu" : "顯示 _MENU_ 筆結果",
+			"zeroRecords" : "沒有符合的結果",
+			"info" : "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+			"infoEmpty" : "顯示第 0 至 0 筆結果，共 0 筆",
+			"infoFiltered" : "",
+			"infoPostFix" : "",
+			"emptyTable" : "無資料",
+			"search" : "搜尋:",
+			"paginate" : {
+				"first" : "第一頁",
+				"previous" : "上一頁",
+				"next" : "下一頁",
+				"last" : "最後一頁"
+			},
+			"aria" : {
+				"sortAscending" : ": 升冪排列",
+				"sortDescending" : ": 降冪排列"
+			}
+		}
+	} );
 </script>
