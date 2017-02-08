@@ -53,6 +53,9 @@ $(function() {
 	$('button[name="form_query"]').click(function() {
 		list_table.ajax.reload();
 	})
+	$('button[name="form_add"]').click(function() {
+		$('#action_form').attr('action', addUrl).submit();
+	})
 });
 
 function buildData(d) {

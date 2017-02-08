@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="<c:url value="/js/user/list.js"/>"></script>
+<script type="text/javascript">
+	var addUrl = '<c:url value="/user/add"/>';
+</script>
 <div id="action_div" class="col-md-12">
 	<div class="box">
 		<div class="box-header">
