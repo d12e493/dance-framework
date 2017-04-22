@@ -5,40 +5,40 @@
 <div id="action_div" class="col-md-12">
 	<div class="box box-success">
 		<div class="box-header">
-			<h3 class="box-title">${contentHeader.title } 使用者</h3>
+			<h3 class="box-title">${contentHeader.title }使用者</h3>
 		</div>
 		<!-- /.box-header -->
 		<div class="box-body">
-			<form method="post" class="form-horizontal" action="add">
+			<form method="post" class="form-horizontal" action="save">
 				<div class="form-group">
-					<label for="" class="col-sm-2 control-label">Email</label>
-					<div class="col-sm-10">
-						<input type="email" class="form-control" id="" placeholder="Email">
+					<label for="" class="col-md-2 control-label">Name</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="" name="name" placeholder="Name" >
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="" class="col-sm-2 control-label">Name</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="" placeholder="Name">
+					<label for="" class="col-md-2 control-label">Email</label>
+					<div class="col-md-4">
+						<input type="email" class="form-control" id="" name="email" placeholder="Email">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="" class="col-sm-2 control-label">Password</label>
-					<div class="col-sm-10">
-						<input type="password" class="form-control" id=""
+					<label for="" class="col-md-2 control-label">Password</label>
+					<div class="col-md-4">
+						<input type="password" class="form-control" id="" name="password"
 							placeholder="Password">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="" class="col-sm-2 control-label">Confirm
+					<label for="" class="col-md-2 control-label">Confirm
 						Password</label>
-					<div class="col-sm-10">
+					<div class="col-md-4">
 						<input type="password" class="form-control" id=""
 							placeholder="Password">
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
+					<div class="col-md-offset-2 col-md-10">
 						<button type="submit" class="btn btn-primary">儲存</button>
 					</div>
 				</div>

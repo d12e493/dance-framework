@@ -3,16 +3,18 @@ package idv.danceframework.service.impl;
 import java.io.Serializable;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import idv.danceframework.service.BaseService;
 
 @Service("baseService")
+@Transactional
 public class BaseServiceImpl implements BaseService {
 
-	@Autowired
+	@PersistenceContext(unitName = "mainPersistenceUnit")
 	private EntityManager em;
 	
 	@Override

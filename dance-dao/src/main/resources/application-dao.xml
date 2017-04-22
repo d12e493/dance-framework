@@ -33,6 +33,7 @@
 
 	<bean id="mainEntityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="mainPersistenceUnit" />
 		<property name="dataSource" ref="mainDataSource"></property>
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean>

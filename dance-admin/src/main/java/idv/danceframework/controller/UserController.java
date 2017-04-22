@@ -88,6 +88,6 @@ public class UserController extends BaseController {
 			LOG.error(e.getMessage(), e);
 		}
 
-		return list();
+		return new ModelAndView("redirect:/user/list");
 	}
 }

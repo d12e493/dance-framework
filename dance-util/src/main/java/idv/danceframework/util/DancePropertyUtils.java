@@ -1,5 +1,6 @@
 package idv.danceframework.util;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.BeanUtilsBean;
 
 public class DancePropertyUtils extends org.apache.commons.beanutils.PropertyUtils {
@@ -30,7 +31,7 @@ public class DancePropertyUtils extends org.apache.commons.beanutils.PropertyUti
 	public static void copyProperties(Object source, Object target, String... peopertyNames) {
 		for (String propertyName : peopertyNames) {
 			try {
-				BeanUtilsBean.getInstance().copyProperty(source, propertyName, target);
+				BeanUtilsBean.getInstance().copyProperty(target, propertyName, getProperty(source, propertyName));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
