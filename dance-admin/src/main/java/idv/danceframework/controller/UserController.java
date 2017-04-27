@@ -10,10 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import idv.danceframework.entity.User;
 import idv.danceframework.lo.PageResult;
@@ -67,27 +69,34 @@ public class UserController extends BaseController {
 		return result;
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public ModelAndView add() {
+	@RequestMapping(value = "/prepareAdd", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView prepareAdd(@ModelAttribute("inputUser") User inputUser ) {
 
 		initHeader();
 		super.contentHeader.setSubTitle("新增");
 		
+		if(inputUser!=null){			
+			super.modelAndView.addObject("inputUser", inputUser);
+		}
+		
+		
 		return modelAndView("user-addEdit");
 	}
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public ModelAndView save(User inputUser) {
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public ModelAndView add(User inputUser,RedirectAttributes redirectAttributes) {
 
 		User saveUser = new User();
 		DancePropertyUtils.copyProperties(inputUser, saveUser, "name", "email", "password");
 
 		try {
-			baseService.save(saveUser);
+//			baseService.save(saveUser);
+			redirectAttributes.addFlashAttribute("inputUser", inputUser);
+			return modelAndView("redirect:/user/prepareAdd");
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 		}
 
-		return new ModelAndView("redirect:/user/list");
+		return modelAndView("redirect:/user/list");
 	}
 }

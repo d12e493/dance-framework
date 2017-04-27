@@ -13,12 +13,12 @@ import idv.danceframework.vo.ContentHeader;
 public abstract class BaseController {
 
 	protected ContentHeader contentHeader = new ContentHeader();
-	
+
 	protected ModelAndView modelAndView = new ModelAndView();
-	
+
 	@Autowired
 	protected SessionWrapper sessionWrapper;
-	
+
 	@Autowired
 	@Qualifier("baseService")
 	protected BaseService baseService;
@@ -31,11 +31,12 @@ public abstract class BaseController {
 		this.contentHeader = contentHeader;
 	}
 
-	public ModelAndView modelAndView(String viewName){
+	public ModelAndView modelAndView(String viewName) {
 		modelAndView.setViewName(viewName);
-		
-		modelAndView.addObject("contentHeader", contentHeader);
-		
+
+		if (contentHeader.isNotEmpty()) {
+			modelAndView.addObject("contentHeader", contentHeader);
+		}
 		return modelAndView;
 	}
 }

@@ -9,23 +9,23 @@
 		</div>
 		<!-- /.box-header -->
 		<div class="box-body">
-			<form method="post" class="form-horizontal" action="save">
+			<form method="post" class="form-horizontal" action="add">
 				<div class="form-group">
 					<label for="" class="col-md-2 control-label">Name</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="" name="name" placeholder="Name" >
+						<input type="text" class="form-control" id="" name="name" placeholder="Name" value="${inputUser.name }">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="" class="col-md-2 control-label">Email</label>
 					<div class="col-md-4">
-						<input type="email" class="form-control" id="" name="email" placeholder="Email">
+						<input type="email" class="form-control" id="" name="email" placeholder="Email" value="${inputUser.email }">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="" class="col-md-2 control-label">Password</label>
 					<div class="col-md-4">
-						<input type="password" class="form-control" id="" name="password"
+						<input type="password" class="form-control" id="" name="password" 
 							placeholder="Password">
 					</div>
 				</div>

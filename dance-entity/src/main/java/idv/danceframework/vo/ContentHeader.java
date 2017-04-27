@@ -15,6 +15,10 @@ public class ContentHeader implements Serializable {
 	private String icon;
 	private List<Bread> breadList = new ArrayList<Bread>();
 
+	public boolean isNotEmpty() {
+		return title != null;
+	}
+
 	public String getTitle() {
 		return title;
 	}
