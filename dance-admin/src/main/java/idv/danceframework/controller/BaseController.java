@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import idv.danceframework.exception.DanceException;
 import idv.danceframework.service.BaseService;
 import idv.danceframework.session.SessionWrapper;
 import idv.danceframework.vo.ContentHeader;
@@ -38,5 +39,8 @@ public abstract class BaseController {
 			modelAndView.addObject("contentHeader", contentHeader);
 		}
 		return modelAndView;
+	}
+	protected void addErrorMessage(DanceException e){
+		// TODO
 	}
 }

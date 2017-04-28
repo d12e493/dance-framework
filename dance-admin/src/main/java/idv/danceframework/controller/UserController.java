@@ -18,9 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import idv.danceframework.entity.User;
+import idv.danceframework.exception.DanceException;
+import idv.danceframework.exception.PropertyNullException;
 import idv.danceframework.lo.PageResult;
 import idv.danceframework.qo.PageRequest;
 import idv.danceframework.util.DancePropertyUtils;
+import idv.danceframework.util.ValidationUtils;
 import idv.danceframework.vo.UserVO;
 
 @Controller
@@ -30,14 +33,14 @@ public class UserController extends BaseController {
 
 	private final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
-	private void initHeader(){
+	private void initHeader() {
 		super.contentHeader.setTitle("使用者管理");
 		super.contentHeader.setIcon("fa fa-fw fa-users");
 	}
-	
+
 	@RequestMapping("/list")
 	public ModelAndView list() {
-		
+
 		initHeader();
 
 		return modelAndView("user-list");
@@ -70,27 +73,29 @@ public class UserController extends BaseController {
 	}
 
 	@RequestMapping(value = "/prepareAdd", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView prepareAdd(@ModelAttribute("inputUser") User inputUser ) {
+	public ModelAndView prepareAdd(@ModelAttribute("inputUser") User inputUser) {
 
 		initHeader();
 		super.contentHeader.setSubTitle("新增");
-		
-		if(inputUser!=null){			
+
+		if (inputUser != null) {
 			super.modelAndView.addObject("inputUser", inputUser);
 		}
-		
-		
+
 		return modelAndView("user-addEdit");
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView add(User inputUser,RedirectAttributes redirectAttributes) {
-
-		User saveUser = new User();
-		DancePropertyUtils.copyProperties(inputUser, saveUser, "name", "email", "password");
+	public ModelAndView add(User inputUser, RedirectAttributes redirectAttributes) {
 
 		try {
-//			baseService.save(saveUser);
+
+			checkInputUser(inputUser);
+			User saveUser = new User();
+			DancePropertyUtils.copyProperties(inputUser, saveUser, "name", "email", "password");
+			baseService.save(saveUser);
+		} catch(DanceException e){
+			addErrorMessage(e);
 			redirectAttributes.addFlashAttribute("inputUser", inputUser);
 			return modelAndView("redirect:/user/prepareAdd");
 		} catch (Exception e) {
@@ -98,5 +103,9 @@ public class UserController extends BaseController {
 		}
 
 		return modelAndView("redirect:/user/list");
+	}
+
+	private void checkInputUser(User inputUser) throws PropertyNullException {
+		ValidationUtils.checkRequireProperty(inputUser, "name", "email", "password");
 	}
 }
