@@ -1,6 +1,7 @@
 apply plugin: 'java'
 
 dependencies {
+	compile project(':dance-core')
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
 	compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.1'
 }
