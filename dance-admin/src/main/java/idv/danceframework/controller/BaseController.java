@@ -1,11 +1,19 @@
 package idv.danceframework.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import idv.danceframework.exception.DanceException;
+import idv.danceframework.core.Message;
+import idv.danceframework.core.enums.ErrorMessage;
+import idv.danceframework.core.enums.MessageType;
+import idv.danceframework.core.enums.SessionAttribute;
+import idv.danceframework.core.enums.SuccessMessage;
 import idv.danceframework.service.BaseService;
 import idv.danceframework.session.SessionWrapper;
 import idv.danceframework.vo.ContentHeader;
@@ -40,7 +48,28 @@ public abstract class BaseController {
 		}
 		return modelAndView;
 	}
-	protected void addErrorMessage(DanceException e){
-		// TODO
+
+	protected void addErrorMessage(ErrorMessage e) {
+
+		Message message = new Message();
+		message.setType(MessageType.ERROR);
+		message.setTemplate(e.name());
+
+		addSessionAttribute(SessionAttribute.SYSTEM_MESSAGE, message);
+	}
+
+	protected void addSeccessMessage(SuccessMessage s) {
+
+		Message message = new Message();
+		message.setType(MessageType.SUCCESS);
+		message.setTemplate(s.name());
+
+		addSessionAttribute(SessionAttribute.SYSTEM_MESSAGE, message);
+	}
+
+	protected void addSessionAttribute(SessionAttribute attribute, Object obj) {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession();
+		session.setAttribute(attribute.toString(), obj);
 	}
 }

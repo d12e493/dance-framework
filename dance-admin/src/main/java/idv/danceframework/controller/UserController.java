@@ -95,7 +95,7 @@ public class UserController extends BaseController {
 			DancePropertyUtils.copyProperties(inputUser, saveUser, "name", "email", "password");
 			baseService.save(saveUser);
 		} catch(DanceException e){
-			addErrorMessage(e);
+			// TODO add error message
 			redirectAttributes.addFlashAttribute("inputUser", inputUser);
 			return modelAndView("redirect:/user/prepareAdd");
 		} catch (Exception e) {

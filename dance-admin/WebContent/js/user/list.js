@@ -60,6 +60,7 @@ $(function() {
 
 function buildData(d) {
 	resetDataTablesOrder(d);
-	d.name = $('#name').val()
+	d.name = $('#inputName').val();
+	d.email = $('#inputEmail').val();
 	return d;
 }

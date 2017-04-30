@@ -12,38 +12,43 @@
 		</div>
 		<!-- /.box-header -->
 		<div class="box-body">
-			<form id="query_form">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th colspan="2"><jsp:include
-									page="/WEB-INF/pages/button/add.jsp" /></th>
-						</tr>
-					</thead>
-					<tbody>
-					<tr>
-							<th><label for="">Name</label></th>
-							<td><input type="text" class="form-control" name="name" id="name"></td>
-						</tr>
-						<tr>
-							<th><label for="">Email</label></th>
-							<td><input type="text" class="form-control" name="email" id="email"></td>
-						</tr>
-						<tr>
-							<th><label for="">Status</label></th>
-							<td><label class="radio-inline"><input type="radio" name="status" value="1" checked>啟用</label>
-							<label class="radio-inline"><input type="radio" name="status" value="-1">停用</label></td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr>
-							<td colspan="2" align="center"><jsp:include
-									page="/WEB-INF/pages/button/query.jsp" /> <jsp:include
-									page="/WEB-INF/pages/button/reset.jsp" /></td>
-						</tr>
-					</tfoot>
-				</table>
-			</form>
+			<div class="col-md-12">
+				<jsp:include page="/WEB-INF/pages/button/add.jsp" />
+			</div>
+			<div class="col-md-10 col-md-offset-1">
+				<form id="query_form" class="form-horizontal">
+					<div class="form-group">
+						<label for="inputName" class="col-md-2 control-label">Name</label>
+						<div class="col-md-3">
+							<input type="text" class="form-control" name="name"
+								id="inputName">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail" class="col-md-2 control-label">Email</label>
+						<div class="col-md-5">
+							<input type="text" class="form-control" name="email"
+								id="inputEmail">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputStatus" class="col-md-2 control-label">Status</label>
+						<div class="col-md-10">
+							<label class="radio-inline"> <input type="radio"
+								name="inlineRadioOptions" id="inlineRadio1" value="option1">
+								啟用
+							</label> <label class="radio-inline"> <input type="radio"
+								name="inlineRadioOptions" id="inlineRadio2" value="option2">
+								停用
+							</label>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-12 text-center">
+				<jsp:include page="/WEB-INF/pages/button/query.jsp" />
+				<jsp:include page="/WEB-INF/pages/button/reset.jsp" />
+			</div>
 			<table id="list_table" class="table table-bordered table-hover">
 				<thead class="bg-black disabled color-palette">
 					<tr>
